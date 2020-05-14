@@ -27,12 +27,12 @@ if __name__ == "__main__":
       def muestraLista(id):
         #Accedo al documento que se ha clickado
         doc = bdd[id]
-        #Quito el frame superior para poder listar las tareas de la lista en la que estoy
+        #Quito los frames para poder listar las tareas de la lista en la que estoy
         top.destroy()
         bot.destroy()
         new_top = Frame(tk)
         new_bot = Frame(tk)
-
+        #Elimina lo que esta en pantalla y ejecuta el método para recargar la vista principal
         def atras():
           new_top.destroy()
           new_bot.destroy()
@@ -104,6 +104,7 @@ if __name__ == "__main__":
         crear_task.pack(side = RIGHT)
         new_bot.pack(side = BOTTOM)
 
+      #Para cada lista crea etiquetas y botones
       top2 = Frame(top)
       top2.pack()
       var1 = StringVar()
