@@ -55,12 +55,12 @@ def init(couch):
 
 if __name__ == "__main__":
     couch = CouchDB('admin','admin',url='http://localhost:5984',connect=True,renew=True)
-    bdd = couch['tasks-app']
-    if(bdd.exists()):
+    try: 
+        bdd = couch['tasks-app']
         couch.delete_database("tasks-app")
         init(couch)
-    else:
-        init()
+    except:
+        init(couch)
     couch.disconnect()
 
     
