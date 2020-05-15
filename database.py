@@ -1,7 +1,7 @@
 from cloudant.client import CouchDB
 
 def init(couch):
-    new_bdd = couch.create_database("prueba")
+    new_bdd = couch.create_database("tasks-app")
     vista = {
             "_id": "_design/listas",
             "views": {
@@ -55,9 +55,9 @@ def init(couch):
 
 if __name__ == "__main__":
     couch = CouchDB('admin','admin',url='http://localhost:5984',connect=True,renew=True)
-    bdd = couch['prueba']
+    bdd = couch['tasks-app']
     if(bdd.exists()):
-        couch.delete_database("prueba")
+        couch.delete_database("tasks-app")
         init(couch)
     else:
         init()
